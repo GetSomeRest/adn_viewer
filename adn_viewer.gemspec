@@ -10,9 +10,9 @@ Gem::Specification.new do |s|
   s.homepage    =
     'http://rubygems.org/gems/adn_viewer'
   s.license       = 'MIT'
-  s.add_dependency('curb',   '>= 0.5.4.0')
-  s.add_dependency('curb-fu',   '>= 0.6.2')
-  s.add_dependency('json',   '>= 1.8.3')
-  s.add_dependency('gon',   '>= 1.8.3')
-  s.required_ruby_version = '>= 2.2.2'
+  s.add_runtime_dependency 'curb', '~> 0.5', '>= 0.5.4.0'
+  s.add_runtime_dependency 'curb-fu', '~> 0.6', '>= 0.6.2'
+  s.add_runtime_dependency 'json', '~> 1.8', '>= 1.8.3'
+  s.add_runtime_dependency 'gon', '~> 5.2', '>= 5.2.3'
+  s.required_ruby_version = '>= 1.9.3'
 end

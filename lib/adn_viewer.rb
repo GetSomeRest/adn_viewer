@@ -5,8 +5,7 @@ class Adn_Viewer
 	end
 
 	def self.create_bucket(token, name, policy)
-		puts "trying"
-		JSON.parse(CurbFu.post({:host => 'developer.api.autodesk.com', :path => '/oss/v1/buckets', :protocol => "https", :headers => { "Authorization" => "Bearer " + token, "Content-Type" => "application/json" }}, { :bucketKey => name, :policy => policy }).messages)
+		puts JSON.parse(CurbFu.post({:host => 'developer.api.autodesk.com', :path => '/oss/v1/buckets', :protocol => "https", :headers => { "Authorization" => "Bearer " + token, "Content-Type" => "application/json" }}, { :bucketKey => name, :policy => policy }).body)
 	end
 
 	def self.check_bucket(token, name)

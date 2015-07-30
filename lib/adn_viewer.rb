@@ -5,11 +5,19 @@ class Adn_Viewer
 	end
 
 	def self.create_bucket(token, name, policy)
-		puts JSON.parse(CurbFu.post({:host => 'developer.api.autodesk.com', :path => '/oss/v1/buckets', :protocol => "https", :headers => { "Authorization" => "Bearer " + token, "Content-Type" => "application/json" }}, { :bucketKey => name, :policy => policy }).body)
+		 JSON.parse(CurbFu.post({:host => 'developer.api.autodesk.com', :path => '/oss/v1/buckets', :protocol => "https", :headers => { "Authorization" => "Bearer " + token, "Content-Type" => "application/json" }}, { :bucketKey => name, :policy => policy }).body)
 	end
 
 	def self.check_bucket(token, name)
 		JSON.parse(CurbFu.get({:host => 'developer.api.autodesk.com', :path => '/oss/v1/buckets/' + name + '/details', :protocol => "https", :headers => { "Authorization" => "Bearer " + token, "Content-Type" => "application/json" }}).body)
+	end
+
+	def self.supported_formats(token)
+		JSON.parse(CurbFu.get({:host => 'developer.api.autodesk.com', :path => '/viewingservice/v1/supported', :protocol => "https", :headers => { "Authorization" => "Bearer " + token, "Content-Type" => "application/json" }}).body)
+	end
+
+	def self.upload_file(token, name, file)
+		JSON.parse(CurbFu.get({:host => 'developer.api.autodesk.com', :path => '/oss/v1/buckets/' + name + '/objects/' + file, :protocol => "https", :headers => { "Authorization" => "Bearer " + token, "Content-Type" => "application/octet-stream" , "Content-Length" => 308331 }, "upload-file" => file }).body)
 	end
 
 end

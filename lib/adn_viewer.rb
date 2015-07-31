@@ -17,7 +17,7 @@ class Adn_Viewer
 		request["content-type"] = 'application/json'
 		request["authorization"] = 'Bearer ' + token
 		request.body = "{\"bucketKey\":\"" + name + "\",\"policy\":\"" + policy + "\"}"
-		puts JSON.parse(http.request(request).read_body)
+		JSON.parse(http.request(request).read_body)
 	end
 
 	def self.check_bucket(token, name)

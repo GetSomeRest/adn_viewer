@@ -1,3 +1,8 @@
+require 'uri'
+require 'net/http'
+require 'curb-fu'
+require 'json'
+
 class Adn_Viewer
 
 	def self.token(key, secret)
@@ -5,7 +10,14 @@ class Adn_Viewer
 	end
 
 	def self.create_bucket(token, name, policy)
-		 JSON.parse(CurbFu.post({:host => 'developer.api.autodesk.com', :path => '/oss/v1/buckets', :protocol => "https", :headers => { "Authorization" => "Bearer " + token, "Content-Type" => "application/json" }}, { :bucketKey => name, :policy => policy }).body)
+		url = URI("https://developer.api.autodesk.com/oss/v1/buckets")
+		http = Net::HTTP.new(url.host, url.port)
+		http.use_ssl = true
+		request = Net::HTTP::Post.new(url)
+		request["content-type"] = 'application/json'
+		request["authorization"] = 'Bearer ' + token
+		request.body = "{\"bucketKey\":\"" + name + "\",\"policy\":\"" + policy + "\"}"
+		http.request(request).read_body
 	end
 
 	def self.check_bucket(token, name)

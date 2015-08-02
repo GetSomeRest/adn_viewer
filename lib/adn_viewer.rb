@@ -39,4 +39,15 @@ class Adn_Viewer
 		puts JSON.parse(http.request(request, file).read_body)
 	end
 
+	def self.register(token, urn)
+		url = URI("https://developer.api.autodesk.com/viewingservice/v1/register")
+		http = Net::HTTP.new(url.host, url.port)
+		http.use_ssl = true
+		request = Net::HTTP::Post.new(url)
+		request["authorization"] = 'Bearer ' + token
+		request["content-type"] = 'application/json'
+		request.body = "{\n    \"urn\": \"" + urn + "\"\n}"
+		JSON.parse(http.request(request).read_body)
+	end
+
 end

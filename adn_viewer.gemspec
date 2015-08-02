@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name        = 'adn_viewer'
-  s.version     = '0.0.7'
-  s.date        = '2015-08-01'
+  s.version     = '0.0.8'
+  s.date        = '2015-08-02'
   s.summary     = "Ruby gem to make usage of Autodesk View and Data API in a Ruby on Rails app easier"
   s.description = "ADN Viewer Starter"
   s.authors     = ["Pratham Makhni Alag"]

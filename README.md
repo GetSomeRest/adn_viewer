@@ -59,7 +59,7 @@ Finally, run bundle-install to install these dependencies.
 
 ## Usage
 
-The following functions are provided as of now to facilitate encorprating the viewer and uploading in your app. The documentation, logic and path for usage follows closely with the [Quick Start Tutorail](http://developer.api.autodesk.com/documentation/v1/vs_quick_start.html).
+The following functions are provided as of now to facilitate encorprating the viewer and uploading in your app. The documentation, logic and path for usage follows closely with the [Quick Start Tutorial](http://developer.api.autodesk.com/documentation/v1/vs_quick_start.html).
 Please pass all parameters as strings. You get the key and secret when you register for an account on developer.autodesk.com and create an app. The name parameter is just a unique bucket name that you would like to give your bucket to store models in. URNs are base64 encoded strings that allow access to translated models, ready for viewing. Finally, all sample success responses are actually parsed and provided as readily usable JSON responses. Sample parameters:
 
 ```
@@ -150,7 +150,7 @@ Adn_Viewer.register(token, urn)
 Sample success response: 
 ```
 {"Result"=>"Created"}
-OR
+       OR
 {"Result"=>"Success"}
 ```
 
@@ -166,3 +166,6 @@ This sample is licensed under the terms of the [MIT License](http://opensource.o
 
 Pratham Makhni Alag (Autodesk Developer Network)<br />
 http://www.autodesk.com/adn<br />
+
+
+For troubleshooting, visit http://forums.autodesk.com/ and post with reference to the view and data api.

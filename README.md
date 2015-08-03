@@ -67,6 +67,8 @@ key: 'y9mJIhH1eO4PZLCAVHS7qlv1EYveJqLi'
 secret: 'WWPE4atWHynFb8yF'
 name: 'bucketname'
 urn: 'dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6dGVzdHN0YWdlL1Rlc3QuZHdn'
+filename: "Test.dwg"
+filepath: "#{Rails.root}/public/Test.dwg"
 ```
 
 
@@ -121,7 +123,7 @@ Sample success response:
 ```
 Uploading a file (replace name with name of bucket you want to upload the file to):
 ```
-Adn_Viewer.upload_file(token, name, file)
+Adn_Viewer.upload_file(token, name, filename, filepath)
 ```
 Sample success response: 
 ```

@@ -22,7 +22,7 @@ Our View and Data API Beta adds powerful 2D and 3D viewing functionality to your
 Our REST and JavaScript API makes it easier to create applications that can view, zoom and interact with 2D and
 3D models from over 60+ model formats with just a web browser, no plugin required!
 
-This is a gem that lets you encorporate the API in your own Ruby script or Ruby on Rails app. All functions required to get a viewer up and running are provded and documented.
+This is a gem that lets you incorporate the API in your own Ruby script or Ruby on Rails app. All functions required to get a viewer up and running are provided and documented.
 
 
 ## Description
@@ -59,7 +59,7 @@ Finally, run bundle-install to install these dependencies.
 
 ## Usage
 
-The following functions are provided as of now to facilitate encorprating the viewer and uploading in your app. The documentation, logic and path for usage follows closely with the [Quick Start Tutorial](http://developer.api.autodesk.com/documentation/v1/vs_quick_start.html).
+The following functions are provided as of now to facilitate incorporating the viewer and uploading in your app. The documentation, logic and path for usage follows closely with the [Quick Start Tutorial](http://developer.api.autodesk.com/documentation/v1/vs_quick_start.html).
 Please pass all parameters as strings. You get the key and secret when you register for an account on developer.autodesk.com and create an app. The name parameter is just a unique bucket name that you would like to give your bucket to store models in. URNs are base64 encoded strings that allow access to translated models, ready for viewing. Finally, all sample success responses are actually parsed and provided as readily usable JSON responses. Sample parameters:
 
 ```
@@ -168,4 +168,4 @@ Pratham Makhni Alag (Autodesk Developer Network)<br />
 http://www.autodesk.com/adn<br />
 
 
-For troubleshooting, visit http://forums.autodesk.com/ and post with reference to the view and data api.
+For troubleshooting, visit forums.autodesk.com and post with reference to the view and data api.

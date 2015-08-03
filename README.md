@@ -162,7 +162,8 @@ Sample success response:
 {"Result"=>"Success"}
 ```
 
-Here is a simple documented ruby on rails app built using this gem: [adn_viewer_gem_test_app](https://github.com/prathamalag1994/adn_viewer_gem_test_app). The tutorial in this repo is highly recommended for all Ruby developers using this gem.
+Here is a simple documented ruby on rails app built using this gem: [adn_viewer_gem_test_app](https://github.com/prathamalag1994/adn_viewer_gem_test_app). The tutorial in this repo is highly recommended for all Ruby developers using this gem. 
+
 A more complex app built incorporating the API: [sample-ruby-on-rails-app-prototyping](https://github.com/Developer-Autodesk/sample-ruby-on-rails-app-prototyping)
 --------
 

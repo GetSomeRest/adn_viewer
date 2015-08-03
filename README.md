@@ -141,7 +141,13 @@ Sample success response:
   ]
 }
 ```
-In order to procede, the id feild you get for an uploaded file needs to be base64 encoded to get the urn by: 
+Please note that you need that the JSON returned has to be parsed properly in order to get the urn out.
+The id feild you get for an uploaded file must be considered a hash and stripped of unnecessary characters:
+```
+urn = Adn_Viewer.upload_file(token, name, filename, filepath)["objects"][0].first.to_s		#upload the file you want to view
+urn = urn[8...-2]    #formats the urn correctly
+```
+In order to procede, this urn retrieved from the id feild of an upload call needs to be base64 encoded to get the final usable urn by: 
 ```
 urn = Base64.urlsafe_encode64(urn)
 ```
@@ -156,6 +162,9 @@ Sample success response:
 {"Result"=>"Success"}
 ```
 
+Here is a simple documented ruby on rails app built using this gem: [adn_viewer_gem_test_app](https://github.com/prathamalag1994/adn_viewer_gem_test_app). The tutorial in this repo is highly recommended for all Ruby developers using this gem. 
+
+A more complex app built incorporating the API: [sample-ruby-on-rails-app-prototyping](https://github.com/Developer-Autodesk/sample-ruby-on-rails-app-prototyping)
 
 --------
 

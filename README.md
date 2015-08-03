@@ -11,10 +11,10 @@ Visit this [page](https://developer.autodesk.com) for instructions to get on-boa
 
 
 ## Links
-[Ruby Gem adn_viewer](https://rubygems.org/gems/adn_viewer)
-[ADN website](https://developer.autodesk.com/)
-[How the API Works and sample code](https://developer.autodesk.com/api/view-and-data-api/)
-[Live Sample](http://developer-autodesk.github.io/LmvQuickStart/)
+[Ruby Gem adn_viewer](https://rubygems.org/gems/adn_viewer) <br />
+[ADN website](https://developer.autodesk.com/) <br />
+[How the API Works and sample code](https://developer.autodesk.com/api/view-and-data-api/) <br />
+[Live Sample](http://developer-autodesk.github.io/LmvQuickStart/) <br />
 
 ## Motivation
 
@@ -42,6 +42,20 @@ This provides the credentials to supply to the http requests on the Autodesk ser
 
 ## Dependencies and Setup
 
+Add this to your gemfile to install the adn_viewer gem:
+```
+gem 'adn_viewer'
+```
+
+Now, add the following to your gemfile to install dependencies:
+```
+gem 'curb-fu'
+gem 'curb'
+gem 'gon'
+gem 'json'
+```
+
+Finally, run bundle-install to install these dependencies.
 
 --------
 
@@ -52,6 +66,5 @@ This sample is licensed under the terms of the [MIT License](http://opensource.o
 
 ## Written by
 
-Cyrille Fauvel (Autodesk Developer Network)<br />
+Pratham Makhni Alag (Autodesk Developer Network)<br />
 http://www.autodesk.com/adn<br />
-http://around-the-corner.typepad.com/<br />

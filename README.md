@@ -60,7 +60,8 @@ Finally, run bundle-install to install these dependencies.
 ## Usage
 
 The following functions are provided as of now to facilitate encorprating the viewer and uploading in your app. The documentation, logic and path for usage follows closely with the [Quick Start Tutorail](http://developer.api.autodesk.com/documentation/v1/vs_quick_start.html).
-Please pass all parameters as strings. You get the key and secret when you register for an account on developer.autodesk.com and create an app. The name parameter is just a unique bucket name that you would like to give your bucket to store models in. URNs are base64 encoded strings that allow access to translated models, ready for viewing. Sample parameters:
+Please pass all parameters as strings. You get the key and secret when you register for an account on developer.autodesk.com and create an app. The name parameter is just a unique bucket name that you would like to give your bucket to store models in. URNs are base64 encoded strings that allow access to translated models, ready for viewing. Finally, all sample success responses are actually parsed and provided as readily usable JSON responses. Sample parameters:
+
 ```
 key: 'y9mJIhH1eO4PZLCAVHS7qlv1EYveJqLi'
 secret: 'WWPE4atWHynFb8yF'
@@ -99,7 +100,59 @@ Sample success response:
     "policyKey" : "transient"
 }
 ```
+Getting bucket details:
+```
+Adn_Viewer.check_bucket(token, name)
+```
+Sample success response: Same as create_bucket
 
+Getting a list of formats supported by the viewer (for pre-validification of uploaded files):
+```
+Adn_Viewer.supported_formats(token)
+```
+Sample success response: 
+```
+"extensions" : ["ipt", "neu", "stla", "stl", "xlsx", "jt", "jpg", "skp", "prt", "dwf", "xls", "png", "sldasm",
+      "step", "dwg", "zip", "nwc", "model", "sim", "stp", "ste", "f3d", "pdf", "iges", "dwt", "catproduct",
+      "csv", "igs", "sldprt", "cgr", "lll", "3dm", "sab", "obj", "pptx", "cam360", "jpeg", "bmp", "exp",
+      "ppt", "doc", "wire", "ige", "rcp", "txt", "dae", "x_b", "3ds", "rtf", "rvt", "g", "sim360", "iam",
+      "asm", "dlv3", "x_t", "pps", "session", "xas", "xpr", "docx", "catpart", "stlb", "tiff", "nwd",
+      "sat", "fbx", "smb", "smt", "dwfx", "tif"]
+```
+Uploading a file (replace name with name of bucket you want to upload the file to):
+```
+Adn_Viewer.upload_file(token, name, file)
+```
+Sample success response: 
+```
+{
+  "bucket-key": "mybucket",
+  "objects": [
+      {
+          "location": "https://developer.api.autodesk.com/oss/v1/buckets/mybucket/objects/skyscpr1.3ds",
+          "size": 308331,
+          "key": "skyscpr1.3ds",
+          "id": "urn:adsk.objects:os.object:mybucket/skyscpr1.3ds",
+          "sha-1": "e84021849a9f5d1842bf792bbcbc6445c280e15b",
+          "content-type": "application/octet-stream"
+      }
+  ]
+}
+```
+In order to procede, the id feild you get for an uploaded file needs to be base64 encoded to get the urn by: 
+```
+urn = Base64.urlsafe_encode64(urn)
+```
+Register your uploaded file for translation:
+```
+Adn_Viewer.register(token, urn)
+```
+Sample success response: 
+```
+{"Result"=>"Created"}
+OR
+{"Result"=>"Success"}
+```
 
 
 --------

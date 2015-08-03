@@ -57,6 +57,51 @@ gem 'json'
 
 Finally, run bundle-install to install these dependencies.
 
+## Usage
+
+The following functions are provided as of now to facilitate encorprating the viewer and uploading in your app. The documentation, logic and path for usage follows closely with the [Quick Start Tutorail](http://developer.api.autodesk.com/documentation/v1/vs_quick_start.html).
+Please pass all parameters as strings. You get the key and secret when you register for an account on developer.autodesk.com and create an app. The name parameter is just a unique bucket name that you would like to give your bucket to store models in. URNs are base64 encoded strings that allow access to translated models, ready for viewing. Sample parameters:
+```
+key: 'y9mJIhH1eO4PZLCAVHS7qlv1EYveJqLi'
+secret: 'WWPE4atWHynFb8yF'
+name: 'bucketname'
+urn: 'dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6dGVzdHN0YWdlL1Rlc3QuZHdn'
+```
+
+
+Getting an access token (required for any call to the server):
+```
+Adn_Viewer.token(key, secret)
+```
+Sample success response: 
+```
+{
+  "token_type" : "Bearer",
+  "expires_in" : 1799,
+  "access_token" : "GX6OONHlQ9qoVaCSmBqJvqPFUT5i"
+}
+```
+Creating a bucket (required to store a model):
+```
+Adn_Viewer.create_bucket(token, name, policy)
+```
+Sample success response: 
+```
+{
+    "key" : "mybucket",
+    "owner" : "obQDn8P0GanGFQha4ngKKVWcxwyvFAGE",
+    "createDate" : 1401735235495,
+    "permissions" : [{
+                "serviceId" : "obQDn8P0GanGFQha4ngKKVWcxwyvFAGE",
+                "access" :  "full"
+          }
+    ],
+    "policyKey" : "transient"
+}
+```
+
+
+
 --------
 
 ## License

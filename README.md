@@ -44,12 +44,12 @@ This provides the credentials to supply to the http requests on the Autodesk ser
 
 To know how to setup a simple rails app using this gem (including installing rails), visit [adn_viewer_gem_test_app](https://github.com/prathamalag1994/adn_viewer_gem_test_app).
 
-Add this to your gemfile to install the adn_viewer gem:
+Add this to your Gemfile to install the adn_viewer gem:
 ```
 gem 'adn_viewer'
 ```
 
-Now, add the following to your gemfile to install dependencies:
+Now, add the following to your Gemfile to install dependencies:
 ```
 gem 'curb-fu'
 gem 'curb'

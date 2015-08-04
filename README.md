@@ -88,6 +88,7 @@ Creating a bucket (required to store a model):
 ```
 Adn_Viewer.create_bucket(token, name, policy)
 ```
+Also, for the 3 types of polices available, read this: [bucket policies.](http://adndevblog.typepad.com/cloud_and_mobile/2015/01/buckets-in-autodesk-view-and-data-api.html) <br />
 Sample success response: 
 ```
 {

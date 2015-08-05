@@ -1,7 +1,7 @@
 # adn_viewer gem
 
 [![Ruby](https://img.shields.io/badge/Ruby-%3E%3D%20v2.0.0-red.svg)](https://www.ruby-lang.org/en/)
-[![Gem](https://img.shields.io/badge/Stable_Gem_Version-v1.0.0-orange.svg)](https://rubygems.org/gems/adn_viewer)
+[![Gem](https://img.shields.io/badge/Stable_Gem-v1.0.0-orange.svg)](https://rubygems.org/gems/adn_viewer)
 [![LMV](https://img.shields.io/badge/View%20%26%20Data%20API-v1.2.15-brightgreen.svg)](http://developer-autodesk.github.io/)
 [![License](http://img.shields.io/:license-mit-blue.svg)](http://opensource.org/licenses/MIT)
 
@@ -42,7 +42,7 @@ This provides the credentials to supply to the http requests on the Autodesk ser
 
 ## Dependencies and Setup
 
-To know how to setup a simple rails app using this gem (including installing rails), visit [adn_viewer_gem_test_app](https://github.com/prathamalag1994/adn_viewer_gem_test_app).
+To know how to setup a simple rails app using this gem (including installing rails), visit [adn_viewer_gem_test_app tutorial](https://github.com/prathamalag1994/adn_viewer_gem_test_app).
 
 Add this to your Gemfile to install the adn_viewer gem:
 ```
@@ -57,7 +57,7 @@ gem 'gon'
 gem 'json'
 ```
 
-Finally, run bundle-install to install these dependencies.
+Finally, run ```bundle install``` to install these dependencies.
 
 ## Usage
 

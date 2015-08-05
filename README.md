@@ -1,7 +1,7 @@
 # adn_viewer gem
 
 [![Ruby](https://img.shields.io/badge/Ruby-%3E%3D%20v2.0.0-red.svg)](https://www.ruby-lang.org/en/)
-[![Gem](https://img.shields.io/badge/Stable_Gem-v1.0.0-orange.svg)](https://rubygems.org/gems/adn_viewer)
+[![Gem](https://img.shields.io/badge/Stable_Gem-v1.0.2-orange.svg)](https://rubygems.org/gems/adn_viewer)
 [![LMV](https://img.shields.io/badge/View%20%26%20Data%20API-v1.2.15-brightgreen.svg)](http://developer-autodesk.github.io/)
 [![License](http://img.shields.io/:license-mit-blue.svg)](http://opensource.org/licenses/MIT)
 
@@ -143,6 +143,14 @@ Sample success response:
       }
   ]
 }
+```
+IMPORTANT: If you're uploading from a link and not from a file on your machine, you must also install the dependency gem 'nokogiri' in the Gemfile and doing bundle install. Finally, pass your filesize in bytes to your upload_file function too. Note: all of this is only required to upload file from a website, not from your own machine.
+Sample code for such a call after putting ```gem 'nokogiri'``` in your gem and doing bundle install: 
+```
+filename = "eg.dwg"
+filepath = "http://eg/eg.dwg"
+filesize = 2199482
+Adn_Viewer.upload_file(token, name, filename, filepath, filesize)
 ```
 Please note that you need that the JSON returned has to be parsed properly in order to get the urn out.
 The id feild you get for an uploaded file must be considered a hash and stripped of unnecessary characters:

@@ -27,7 +27,7 @@ This is a gem that lets you incorporate the API in your own Ruby script or Ruby 
 
 ## Description
 
-The adn_viewer gem allows authentication, bucket creation, checking, uploading files, registering for viewing and more. You can use the gem to setup an RoR app that requires integration of viewing, uploading, etc. of 3D models in a light weight javascript viewer. 
+The adn_viewer gem allows authentication, bucket creation, checking, uploading files, registering for viewing and more. You can use the gem to setup an RoR app that requires integration of viewing, uploading, etc. of 3D models in a light weight javascript viewer.
 
 It closely follows the steps described in the documentation:
 
@@ -78,7 +78,7 @@ Getting an access token (required for any call to the server):
 ```
 Adn_Viewer.token(key, secret)
 ```
-Sample success response: 
+Sample success response:
 ```
 {
   "token_type" : "Bearer",
@@ -91,7 +91,7 @@ Creating a bucket (required to store a model):
 Adn_Viewer.create_bucket(token, name, policy)
 ```
 Also, for the 3 types of polices available, read this: [bucket policies.](http://adndevblog.typepad.com/cloud_and_mobile/2015/01/buckets-in-autodesk-view-and-data-api.html) <br />
-Sample success response: 
+Sample success response:
 ```
 {
     "key" : "mybucket",
@@ -115,7 +115,7 @@ Getting a list of formats supported by the viewer (for pre-validification of upl
 ```
 Adn_Viewer.supported_formats(token)
 ```
-Sample success response: 
+Sample success response:
 ```
 "extensions" : ["ipt", "neu", "stla", "stl", "xlsx", "jt", "jpg", "skp", "prt", "dwf", "xls", "png", "sldasm",
       "step", "dwg", "zip", "nwc", "model", "sim", "stp", "ste", "f3d", "pdf", "iges", "dwt", "catproduct",
@@ -124,11 +124,11 @@ Sample success response:
       "asm", "dlv3", "x_t", "pps", "session", "xas", "xpr", "docx", "catpart", "stlb", "tiff", "nwd",
       "sat", "fbx", "smb", "smt", "dwfx", "tif"]
 ```
-Uploading a file (replace name with name of bucket you want to upload the file to):
+Uploading a file:
 ```
-Adn_Viewer.upload_file(token, name, filename, filepath)
+Adn_Viewer.upload_file(token, bucket_name, filename, filepath)
 ```
-Sample success response: 
+Sample success response:
 ```
 {
   "bucket-key": "mybucket",
@@ -145,12 +145,12 @@ Sample success response:
 }
 ```
 IMPORTANT: If you're uploading from a link and not from a file on your machine, you must also install the dependency gem 'nokogiri' in the Gemfile and doing bundle install. Finally, pass your filesize in bytes to your upload_file function too. Note: all of this is only required to upload file from a website, not from your own machine.
-Sample code for such a call after putting ```gem 'nokogiri'``` in your gem and doing bundle install: 
+Sample code for such a call after putting ```gem 'nokogiri'``` in your gem and doing bundle install:
 ```
 filename = "eg.dwg"
 filepath = "http://eg/eg.dwg"
 filesize = 2199482
-Adn_Viewer.upload_file(token, name, filename, filepath, filesize)
+Adn_Viewer.upload_file(token, bucket_name, filename, filepath, filesize)
 ```
 Please note that you need that the JSON returned has to be parsed properly in order to get the urn out.
 The id feild you get for an uploaded file must be considered a hash and stripped of unnecessary characters:
@@ -158,7 +158,7 @@ The id feild you get for an uploaded file must be considered a hash and stripped
 urn = Adn_Viewer.upload_file(token, name, filename, filepath)["objects"][0].first.to_s		#upload the file you want to view
 urn = urn[8...-2]    #formats the urn correctly
 ```
-In order to procede, this urn retrieved from the id feild of an upload call needs to be base64 encoded to get the final usable urn by: 
+In order to procede, this urn retrieved from the id feild of an upload call needs to be base64 encoded to get the final usable urn by:
 ```
 urn = Base64.urlsafe_encode64(urn)
 ```
@@ -166,14 +166,14 @@ Register your uploaded file for translation:
 ```
 Adn_Viewer.register(token, urn)
 ```
-Sample success response: 
+Sample success response:
 ```
 {"Result"=>"Created"}
        OR
 {"Result"=>"Success"}
 ```
 
-Here is a simple documented ruby on rails app built using this gem: [adn_viewer_gem_test_app](https://github.com/prathamalag1994/adn_viewer_gem_test_app). The tutorial in this repo is highly recommended for all Ruby developers using this gem. 
+Here is a simple documented ruby on rails app built using this gem: [adn_viewer_gem_test_app](https://github.com/prathamalag1994/adn_viewer_gem_test_app). The tutorial in this repo is highly recommended for all Ruby developers using this gem.
 
 A more complex app built incorporating the API: [sample-ruby-on-rails-app-prototyping](https://github.com/Developer-Autodesk/sample-ruby-on-rails-app-prototyping)
 

@@ -48,6 +48,13 @@ Add this to your Gemfile to install the adn_viewer gem:
 ```
 gem 'adn_viewer'
 ```
+Now, add the following to your Gemfile to install dependencies:
+```
+gem 'curb-fu'
+gem 'curb'
+gem 'gon'
+gem 'json'
+```
 
 Finally, run ```bundle install``` to install these dependencies.
 

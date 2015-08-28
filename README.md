@@ -116,9 +116,9 @@ Sample success response:
       "asm", "dlv3", "x_t", "pps", "session", "xas", "xpr", "docx", "catpart", "stlb", "tiff", "nwd",
       "sat", "fbx", "smb", "smt", "dwfx", "tif"]
 ```
-Uploading a file (replace name with name of bucket you want to upload the file to):
+Uploading a file:
 ```
-Adn_Viewer.upload_file(token, name, filename, filepath)
+Adn_Viewer.upload_file(token, bucket_name, filename, filepath)
 ```
 Sample success response:
 ```
@@ -142,7 +142,7 @@ Sample code for such a call after putting ```gem 'nokogiri'``` in your gem and d
 filename = "eg.dwg"
 filepath = "http://eg/eg.dwg"
 filesize = 2199482
-Adn_Viewer.upload_file(token, name, filename, filepath, filesize)
+Adn_Viewer.upload_file(token, bucket_name, filename, filepath, filesize)
 ```
 Please note that you need that the JSON returned has to be parsed properly in order to get the urn out.
 The id feild you get for an uploaded file must be considered a hash and stripped of unnecessary characters:

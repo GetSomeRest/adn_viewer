@@ -28,9 +28,9 @@ class Adn_Viewer
 		JSON.parse(CurbFu.get({:host => 'developer.api.autodesk.com', :path => '/viewingservice/v1/supported', :protocol => "https", :headers => { "Authorization" => "Bearer " + token, "Content-Type" => "application/json" }}).body)
 	end
 
-	def self.upload_file(token, name, filename, filepath, filesize = 0)
+	def self.upload_file(token, bucket_name, filename, filepath, filesize = 0)
 		boundary = "AaB03xZZZZZZ11322321111XSDW"
-		uri = URI("https://developer.api.autodesk.com/oss/v1/buckets/" + name + "/objects/" + filename)
+		uri = URI("https://developer.api.autodesk.com/oss/v1/buckets/" + bucket_name + "/objects/" + filename)
 		http = Net::HTTP.new(uri.host, uri.port)
 		http.use_ssl = true
 		request = Net::HTTP::Put.new(uri)

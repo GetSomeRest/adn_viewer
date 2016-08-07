@@ -1,3 +1,7 @@
+This sample is obsolete and not maintained
+
+
+
 # adn_viewer gem
 
 [![Ruby](https://img.shields.io/badge/Ruby-%3E%3D%20v2.0.0-red.svg)](https://www.ruby-lang.org/en/)

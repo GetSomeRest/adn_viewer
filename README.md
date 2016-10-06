@@ -1,4 +1,4 @@
-This sample is obsolete and not maintained
+# Deprecated sample - not maintained anymore (Summer 2016)
 
 
 
